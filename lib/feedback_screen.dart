@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uts_2021110055/home_screen.dart';
 
 
 class FeedbackScreen extends StatefulWidget {
@@ -51,7 +52,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                   );
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const MainScreen()),
+                    MaterialPageRoute(builder: (context) => const HomeScreen()),
                   );
                 },
                 style: TextButton.styleFrom(
@@ -75,3 +76,4 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
       ),
     );
   }
+}
