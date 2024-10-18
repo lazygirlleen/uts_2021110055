@@ -18,7 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
       appBar: AppBar(
         flexibleSpace: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children:  [
+          children: [
             Image.asset(
               'images/Nekoshop.png',
               fit: BoxFit.contain,
@@ -28,58 +28,54 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                'Welcome to Nekoshop',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'Welcome to Nekoshop',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
               ),
-              const SizedBox(height: 18),
-              TextFormField(
-                controller: _emailController,
-                decoration: const InputDecoration(
-                  labelText: 'Email',
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your email';
-                  }
-                  return null;
-                },
+            ),
+            const SizedBox(height: 18),
+            TextFormField(
+              controller: _emailController,
+              decoration: const InputDecoration(
+                labelText: 'Email',
               ),
-              const SizedBox(height: 16),
-              TextFormField(
-                controller: _passwordController,
-                decoration: const InputDecoration(
-                  labelText: 'Password',
-                ),
-                obscureText: true,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your password';
-                  }
-                  return null;
-                },
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Please enter your email';
+                }
+                return null;
+              },
+            ),
+            const SizedBox(height: 16),
+            TextFormField(
+              controller: _passwordController,
+              decoration: const InputDecoration(
+                labelText: 'Password',
               ),
-              const SizedBox(height: 24),
-              ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    // Display email and password in console
-                    ('Email: ${_emailController.text}');
-                    ('Password: ${_passwordController.text}');
-                  }
-                },
-                child: const Text('Login'),
-              ),
-            ],
-          ),
+              obscureText: true,
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Please enter your password';
+                }
+                return null;
+              },
+            ),
+            const SizedBox(height: 24),
+            OutlinedButton(
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  ('Email: ${_emailController.text}');
+                  ('Password: ${_passwordController.text}');
+                }
+              },
+              child: const Text('Login'),
+            ),
+          ],
         ),
       ),
     );
