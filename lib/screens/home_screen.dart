@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:uts_2021110055/cart_screen.dart';
-import 'package:uts_2021110055/feedback_screen.dart';
-import 'package:uts_2021110055/info_screen.dart';
-import 'package:uts_2021110055/product_screen.dart';
+import 'package:uts_2021110055/screens/cart_screen.dart';
+import 'package:uts_2021110055/screens/feedback_screen.dart';
+import 'package:uts_2021110055/screens/info_screen.dart';
+import 'package:uts_2021110055/screens/product_screen.dart';
 
 // Enum for navigation items
 enum MainScreenItem { home, store, cart }
@@ -18,12 +18,12 @@ class _HomeScreenState extends State<HomeScreen> {
   MainScreenItem _selectedItem = MainScreenItem.home;
 
   final List<Map<String, String>> products = [
-    {"name": "Permen", "description": "This is product 1 description."},
-    {"name": "Product 2", "description": "This is product 2 description."},
-    {"name": "Product 3", "description": "This is product 3 description."},
-    {"name": "Product 4", "description": "This is product 4 description."},
-    {"name": "Product 5", "description": "This is product 5 description."},
-    {"name": "Product 6", "description": "This is product 6 description."},
+    {"name": "Xiaomi", "description": "This is product 1 description."},
+    {"name": "Samsung", "description": "This is product 2 description."},
+    {"name": "Oppo", "description": "This is product 3 description."},
+    {"name": "Asus", "description": "This is product 4 description."},
+    {"name": "Iphone", "description": "This is product 5 description."},
+    {"name": "Infinix", "description": "This is product 6 description."},
   ];
 
   void _onItemTap(MainScreenItem item) {

@@ -32,6 +32,7 @@ dependencies:
     sdk: flutter
   persistent_shopping_cart: ^0.0.6
   cached_network_image: ^3.3.1
+  provider: ^6.1.2
 
 
   # The following adds the Cupertino Icons font to your application.

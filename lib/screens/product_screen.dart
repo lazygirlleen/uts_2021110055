@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:uts_2021110055/cart_screen.dart';
+import 'package:uts_2021110055/screens/cart_screen.dart';
 
 class ProductScreen extends StatelessWidget {
   const ProductScreen({super.key});
@@ -23,7 +23,7 @@ class ProductScreen extends StatelessWidget {
       ),
         bottomNavigationBar: BottomAppBar(
         child: SizedBox(
-          height: 50.0,
+          height: 30.0,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [

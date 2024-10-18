@@ -29,7 +29,7 @@ class CartScreen extends StatelessWidget {
       ),
       bottomNavigationBar: BottomAppBar(
         child: SizedBox(
-          height: 50.0,
+          height: 30.0,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
