@@ -14,7 +14,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: const Color.fromARGB(255, 224, 242, 228), 
+        color: const Color.fromARGB(255, 204, 204, 204), 
         padding: const EdgeInsets.all(16.0), 
         child: Center(
           child: Column(
@@ -56,7 +56,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                   );
                 },
                 style: TextButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 98, 134, 100), // Warna tombol
+                  backgroundColor: const Color.fromARGB(255, 132, 132, 132), // Warna tombol
                   padding: const EdgeInsets.symmetric(
                     horizontal: 32.0,
                     vertical: 12.0,

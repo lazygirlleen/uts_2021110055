@@ -34,11 +34,13 @@ dependencies:
   cached_network_image: ^3.3.1
   provider: ^6.1.2
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   input_quantity: ^2.4.1
+  app_bar_with_search_switch: ^1.8.6
+  flutter_cart: ^0.0.9
+  
 
 dev_dependencies:
   flutter_test:
