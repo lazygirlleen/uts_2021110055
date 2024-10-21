@@ -3,7 +3,9 @@ import 'package:uts_2021110055/models/product.dart';
 import 'package:uts_2021110055/screens/cart_screen.dart';
 import 'package:uts_2021110055/screens/feedback_screen.dart';
 import 'package:uts_2021110055/screens/info_screen.dart';
+import 'package:uts_2021110055/screens/login_screen.dart';
 import 'package:uts_2021110055/screens/product_screen.dart';
+import 'package:intl/intl.dart';
 
 enum MainScreenItem { home, store, cart }
 
@@ -23,41 +25,44 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Product> products = [
     Product(
       name: "Xiaomi 13T",
-      price: 6499000,
+      price: 6499000.00,
       description: "Xiaomi 13T merupakan HP dengan layar 6.67 inchi",
       imageUrl: "images/xiaomi.jpeg",
     ),
     Product(
       name: "Samsung S24 FE",
-      price: 9999000,
+      price: 9999000.00,
       description: "Desain ponsel ini terlihat premium dengan tiga kamera",
       imageUrl: "images/samsung.jpeg",
     ),
     Product(
       name: "Oppo A3 Pro 5G",
-      price: 3999000,
+      price: 3999000.00,
       description: "OPPO A3 Pro 5G ideal untuk memenuhi kebutuhan hiburan",
       imageUrl: "images/oppo.jpeg",
     ),
     Product(
       name: "Oneplus 12R",
-      price: 14899000,
+      price: 14899000.00,
       description: "Forever in our archive: Like Keqing’s echo",
       imageUrl: "images/oneplus.jpeg",
     ),
     Product(
       name: "Realme 13+ 5G",
-      price: 4599000,
+      price: 4599000.00,
       description: "Performance Beyond Limits",
       imageUrl: "images/realme.jpeg",
     ),
     Product(
       name: "Infinix Smart 8 Pro",
-      price: 1369000,
+      price: 1369000.00,
       description: "Abadikan foto dengan ketajaman yang tak tertandingi",
       imageUrl: "images/infinix.jpg",
     ),
   ];
+
+   final NumberFormat currencyFormatter =
+      NumberFormat.currency(locale: 'id_ID', symbol: 'Rp ');
 
   void _onItemTap(MainScreenItem item) {
     setState(() {
@@ -103,6 +108,14 @@ class _HomeScreenState extends State<HomeScreen> {
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const FeedbackScreen()),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.logout),
+              title: const Text('Logout'),
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const LoginScreen()),
               ),
             ),
           ],

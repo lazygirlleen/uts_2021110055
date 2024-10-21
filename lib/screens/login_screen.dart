@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:uts_2021110055/main.dart';
 import 'package:uts_2021110055/provider/user_provider.dart';
 import 'package:uts_2021110055/screens/home_screen.dart';
 import 'package:uts_2021110055/models/user.dart'; 
@@ -24,21 +23,18 @@ class LoginScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        flexibleSpace: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              'images/Nekoshop.png',
-              fit: BoxFit.contain,
-            ),
-          ],
-        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+              SizedBox(
+              child: Image.asset(
+                'images/Nekoshop.png',
+                fit: BoxFit.contain, 
+              ),
+            ),
+                const SizedBox(height: 20.0),
             const Text(
               'Welcome to Nekoshop',
               style: TextStyle(
@@ -46,7 +42,7 @@ class LoginScreen extends StatelessWidget {
                 fontSize: 20,
               ),
             ),
-            const SizedBox(height: 18),
+            const SizedBox(height: 20),
          
             TextField(
               controller: emailController,

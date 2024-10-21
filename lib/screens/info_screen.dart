@@ -28,19 +28,34 @@ class InfoScreen extends StatelessWidget {
       Text('Halo, Selamat datang di Nekoshop!',
        style: TextStyle(
                     fontSize: 16,
-                    color: Color.fromARGB(255, 206, 206, 206),
+                    color: Color.fromARGB(255, 106, 106, 106),
                     fontWeight: FontWeight.bold,
                   ),
                   ),
+      SizedBox(height: 16),
+      Text('Kami merupakan sebuah E-Commerce yang menjual berbagai jenis Smartphone',
+       style: TextStyle(
+                    fontSize: 14,
+                    color: Color.fromARGB(255, 106, 106, 106),
+                  ),
+                  ),
+      SizedBox(height: 16),
        Text('Code by Sulistiani',
        style: TextStyle(
                     fontSize: 14,
-                    color: Color.fromARGB(255, 206, 206, 206),
+                    color: Color.fromARGB(255, 106, 106, 106),
+                  ),
+                  ),
+      Text('Logo created by Sulistiani',
+       style: TextStyle(
+                    fontSize: 14,
+                    color:Color.fromARGB(255, 106, 106, 106),
                   ),
                   )
           ],
         ),
       ),
+      
     );
   }
 
