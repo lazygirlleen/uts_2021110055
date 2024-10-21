@@ -20,31 +20,37 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Product> products = [
     Product(
       name: "Xiaomi 13T",
+      price: 6499000,
       description:
       "Xiaomi 13T merupakan HP dengan layar 6.67 inchi dan tingkat densitas piksel sebesar 446ppi. Ia dilengkapi dengan kamera belakang 50 + 50 + 12MP dan kamera depan 20MP. HP ini juga hadir dengan kapasitas baterai 5000mAh.",
       imageUrl: "images/xiaomi.jpeg",
     ),
     Product(
       name: "Samsung  S24 FE", 
+      price: 9999000,
       description: "Desain ponsel ini terlihat premium dengan tiga kamera yang tersusun vertikal di bagian belakang dan layar datar dengan punch-hole kamera depan di bagian tengah atas. Meskipun menggunakan frame aluminium matte dan panel belakang glossy, kesan keseluruhannya tetap kokoh dan tahan lama berkat sertifikasi IP68 untuk ketahanan air dan debu.", 
       imageUrl: "images/samsung.jpeg"
     ),
     Product(
       name: "Oppo A3 Pro 5G", 
+      price: 3999000,
       description: "OPPO A3 Pro 5G ideal untuk memenuhi kebutuhan hiburan, termasuk bermain game.", 
       imageUrl: "images/oppo.jpeg"
     ),
     Product(
       name: "Oneplus 12R", 
+      price: 14899000,
       description: "Forever in our archive: Like Keqing’s echo, this product won’t return.", 
       imageUrl: "images/oneplus.jpeg"
     ),
     Product(
       name: "Realme 13+ 5G", 
+      price: 4599000,
       description: "Performance Beyond Limits", 
       imageUrl: "images/realme.jpeg"),
     Product(
-      name: "Infinix Smart 8 Pro", 
+      name: "Infinix Smart 8 Pro",
+      price: 1369000,
       description: "Abadikan foto dengan ketajaman yang tak tertandingi dengan kamera 50MP Dual AI Camera", 
       imageUrl: "images/infinix.jpg"
     ),
@@ -155,14 +161,13 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  
-    Widget _buildProductBox(Product product, BuildContext context) {
+  Widget _buildProductBox(Product product, BuildContext context) {
   return GestureDetector(
     onTap: () {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => ProductScreen(product: product), // Kirim data produk ke ProductScreen
+          builder: (context) => ProductScreen(product: product), 
         ),
       );
     },
