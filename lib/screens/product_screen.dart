@@ -27,7 +27,7 @@ class _ProductScreenState extends State<ProductScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.network(
+            Image.asset(
               widget.product.imageUrl,
               height: 200,
               fit: BoxFit.cover,
