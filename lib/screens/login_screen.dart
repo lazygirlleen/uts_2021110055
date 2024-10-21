@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:uts_2021110055/screens/home_screen.dart';
 import 'package:uts_2021110055/models/user.dart'; 
-import 'package:uts_2021110055/provider/user_provider.dart'; 
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -47,16 +45,20 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 18),
+         
             TextField(
               controller: emailController,
               decoration: const InputDecoration(
+                border: OutlineInputBorder(),
                 labelText: 'Email',
               ),
             ),
             const SizedBox(height: 16),
+           
             TextField(
               controller: passwordController,
               decoration: const InputDecoration(
+                border: OutlineInputBorder(),
                 labelText: 'Password',
               ),
               obscureText: true,

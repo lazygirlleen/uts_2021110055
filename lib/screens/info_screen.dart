@@ -25,7 +25,7 @@ class InfoScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
       SizedBox(height: 16),
-      Text('Halo, selamat datang di Nekoshop!',
+      Text('Halo, Selamat datang di Nekoshop!',
        style: TextStyle(
                     fontSize: 16,
                     color: Color.fromARGB(255, 206, 206, 206),

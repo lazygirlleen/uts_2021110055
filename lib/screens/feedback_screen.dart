@@ -14,8 +14,8 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: const Color.fromARGB(255, 224, 242, 228), // Latar belakang hijau muda
-        padding: const EdgeInsets.all(16.0), // Padding di sekitar konten
+        color: const Color.fromARGB(255, 224, 242, 228), 
+        padding: const EdgeInsets.all(16.0), 
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
