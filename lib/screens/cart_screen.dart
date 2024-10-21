@@ -34,6 +34,12 @@ class CartScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final cartItem = cartItems[index];
                   return ListTile(
+                  leading: Image.asset(
+                    cartItem.product.imageUrl,
+                    width: 50,
+                    height: 50,
+                    fit: BoxFit.cover,
+                  ),
                     title: Text(cartItem.product.name),
                     subtitle: Text('Quantity: ${cartItem.quantity}'), // Memperbaiki format jumlah
                     trailing: Text('Total: Rp ${cartItem.totalPrice.toString()}'), // Mengubah format total price
@@ -47,14 +53,6 @@ class CartScreen extends StatelessWidget {
                 },
               ),
             ),
-            const SizedBox(height: 16.0),
-            Text(
-              'Total Price: Rp ${cartProvider.totalPrice.toString()}', // Mengubah format total price
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
           ],
         ),
       ),
@@ -62,8 +60,15 @@ class CartScreen extends StatelessWidget {
         child: SizedBox(
           height: 50.0,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+            Text(
+              'Rp ${cartProvider.totalPrice.toString()}', // Total Price dari items
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
@@ -79,7 +84,6 @@ class CartScreen extends StatelessWidget {
                 },
                 child: const Text('Checkout'),
               ),
-              const SizedBox(width: 16),
             ],
           ),
         ),
