@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:uts_2021110055/main.dart';
+import 'package:uts_2021110055/provider/user_provider.dart';
 import 'package:uts_2021110055/screens/home_screen.dart';
 import 'package:uts_2021110055/models/user.dart'; 
-
+import 'package:provider/provider.dart';
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
@@ -77,19 +79,19 @@ class LoginScreen extends StatelessWidget {
                   return;
                 }
 
-                // final newUser = User(
-                //   email: email,
-                //   password: password,
-                // );
+                final newUser = User(
+                  email: email,
+                  password: password,
+                );
 
-                // // Update or add user based on whether we are editing
-                // if (isEdit) {
-                //   context.read<UserProvider>().editUser(newUser);
-                // } else {
-                //   context.read<UserProvider>().addUser(newUser);
-                // }
+                if(isEdit){
+                      context.read<UserProvider>().editUser(newUser);
+                    } else {
+                      context.read<UserProvider>().addUser(newUser);
+                    }
+                    
+                    context.read<UserProvider>().addUser(newUser);
 
-                // Navigate to HomeScreen
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => const HomeScreen()),

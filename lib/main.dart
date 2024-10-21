@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:uts_2021110055/models/user.dart';
 import 'package:uts_2021110055/provider/cart_provider.dart';
+import 'package:uts_2021110055/provider/user_provider.dart';
 import 'package:uts_2021110055/screens/home_screen.dart';
 import 'package:uts_2021110055/screens/login_screen.dart';
 
@@ -9,6 +11,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => CartProvider()),
+        ChangeNotifierProvider(create: (_) => UserProvider()),
       ],
       child: const MyApp(),
     ),
@@ -27,7 +30,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      home: const LoginScreen(),
     );
   }
 }

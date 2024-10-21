@@ -16,8 +16,9 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   MainScreenItem _selectedItem = MainScreenItem.home;
-  TextEditingController searchController = TextEditingController();
+  final TextEditingController searchController = TextEditingController();
   String searchQuery = '';
+  bool _isEditing = false;
 
   final List<Product> products = [
     Product(
@@ -109,19 +110,40 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       appBar: AppBar(
         title: _selectedItem == MainScreenItem.home
-            ? TextField(
-                controller: searchController,
-                decoration: const InputDecoration(
-                  hintText: 'Search products...',
-                  border: InputBorder.none,
-                ),
-                onChanged: (value) {
-                  setState(() {
-                    searchQuery = value;
-                  });
-                },
-              )
-            : Text(_selectedItem.name),
+            ? _isEditing
+                ? Expanded(
+                    child: TextField(
+                      controller: searchController,
+                      decoration: const InputDecoration(
+                        hintText: 'Search products...',
+                        border: InputBorder.none,
+                      ),
+                      onChanged: (value) {
+                        setState(() {
+                          searchQuery = value;
+                        });
+                      },
+                    ),
+                  )
+                : Text(
+                    searchQuery.isNotEmpty ? searchQuery : 'Search products...',
+                    style: const TextStyle(fontSize: 16),
+                  )
+            : const SizedBox(), // Menghindari error saat tidak di home
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {
+              setState(() {
+                _isEditing = !_isEditing; // Toggle antara IconButton dan TextField
+                if (!_isEditing) {
+                  searchQuery = searchController.text; // Simpan query saat selesai editing
+                  searchController.clear(); // Kosongkan TextField setelah klik
+                }
+              });
+            },
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
