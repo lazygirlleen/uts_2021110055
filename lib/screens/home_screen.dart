@@ -209,14 +209,20 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      //button untuk melihat halaman cart
+      floatingActionButton: 
+        FloatingActionButton(
+        backgroundColor: const Color.fromARGB(255, 115, 115, 115),
         onPressed: () {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => const CartScreen()),
           );
         },
-        child: const Icon(Icons.shopping_cart),
+        child: const Icon(
+          Icons.shopping_cart,
+          color: Colors.white,
+        ),
       ),
     );
   }
