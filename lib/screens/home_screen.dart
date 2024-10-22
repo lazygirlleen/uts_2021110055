@@ -6,6 +6,7 @@ import 'package:uts_2021110055/screens/info_screen.dart';
 import 'package:uts_2021110055/screens/login_screen.dart';
 import 'package:uts_2021110055/screens/product_screen.dart';
 import 'package:intl/intl.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 enum MainScreenItem { home, store, cart }
 
@@ -21,47 +22,67 @@ class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController searchController = TextEditingController();
   String searchQuery = '';
   bool _isEditing = false;
+  bool isSearching = false;
+
 
   final List<Product> products = [
     Product(
       name: "Xiaomi 13T",
       price: 6499000.00,
-      description: "Xiaomi 13T merupakan HP dengan layar 6.67 inchi",
+      description:
+          "Xiaomi 13T merupakan HP dengan layar 6.67 inchi dan tingkat densitas piksel sebesar 446ppi. Ia dilengkapi dengan kamera belakang 50 + 50 + 12MP dan kamera depan 20MP. HP ini juga hadir dengan kapasitas baterai 5000mAh.",
       imageUrl: "images/xiaomi.jpeg",
     ),
     Product(
       name: "Samsung S24 FE",
       price: 9999000.00,
-      description: "Desain ponsel ini terlihat premium dengan tiga kamera",
+      description:
+          "Desain ponsel ini terlihat premium dengan tiga kamera yang tersusun vertikal di bagian belakang dan layar datar dengan punch-hole kamera depan di bagian tengah atas. Meskipun menggunakan frame aluminium matte dan panel belakang glossy, kesan keseluruhannya tetap kokoh dan tahan lama berkat sertifikasi IP68 untuk ketahanan air dan debu.",
       imageUrl: "images/samsung.jpeg",
     ),
     Product(
       name: "Oppo A3 Pro 5G",
       price: 3999000.00,
-      description: "OPPO A3 Pro 5G ideal untuk memenuhi kebutuhan hiburan",
+      description:
+          "OPPO A3 Pro 5G ideal untuk memenuhi kebutuhan hiburan, termaksud bermain game",
       imageUrl: "images/oppo.jpeg",
     ),
     Product(
       name: "Oneplus 12R",
       price: 14899000.00,
-      description: "Forever in our archive: Like Keqing’s echo",
+      description: "Forever in our archive: Like Keqing’s echo, this product won’t return.",
       imageUrl: "images/oneplus.jpeg",
     ),
     Product(
       name: "Realme 13+ 5G",
       price: 4599000.00,
-      description: "Performance Beyond Limits",
+      description:
+          "Realme 13 Plus 5G memiliki tuning khusus untuk gaming tingkat turnamen. 'Performance Beyond Limits' Realme 13 Series 5G siap menjadi pilihan mereka yang mengutamakan performa didampingi dengan desain stylish dan kemampuan fotografi mumpuni",
       imageUrl: "images/realme.jpeg",
     ),
     Product(
       name: "Infinix Smart 8 Pro",
       price: 1369000.00,
-      description: "Abadikan foto dengan ketajaman yang tak tertandingi",
+      description:
+          "Infinix Smart 8 Pro hadir dengan konsep desain ‘mewah’ untuk ukuran smartphone sejuta. Bodinya dibalut dengan material plastik polikarbonat yang ringan.",
       imageUrl: "images/infinix.jpg",
+    ),
+    Product(
+      name: "Samsung A35 5G",
+      price: 4990000.00,
+      description:
+          "Samsung Galaxy A35 5G hadir dengan layar Super AMOLED berukuran 6,6 inci, dengan resolusi Full HD Plus (1.080 x 2.340 piksel), refresh rate 120 Hz, kedalaman warna 16 juta, rasio layar 19,5:9, dan tingkat kecerahan (brightness) maksimum 1.000 nits.",
+      imageUrl: "images/samsunga35.jpeg",
+    ),
+     Product(
+      name: "Oneplus Ace Pro",
+      price: 24350000.00,
+      description: "OnePlus Ace Pro Genshin Impact Limited Edition dirancang dengan antamuka khusus yang mampu menampilkan animasi booting, membuka kunci, lockscreen, serta live wallpaper bertema Hu Tao.",
+      imageUrl: "images/oneplushutao.jpeg",
     ),
   ];
 
-   final NumberFormat currencyFormatter =
+  final NumberFormat currencyFormatter =
       NumberFormat.currency(locale: 'id_ID', symbol: 'Rp ');
 
   void _onItemTap(MainScreenItem item) {
@@ -73,7 +94,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final filteredProducts = products
-        .where((product) => product.name.toLowerCase().contains(searchQuery.toLowerCase()))
+        .where((product) =>
+            product.name.toLowerCase().contains(searchQuery.toLowerCase()))
         .toList();
 
     return Scaffold(
@@ -81,14 +103,14 @@ class _HomeScreenState extends State<HomeScreen> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
+            DrawerHeader(
+              decoration: const BoxDecoration(
                 color: Color.fromARGB(255, 57, 58, 57),
               ),
               child: Text(
                 'NekoShop',
-                style: TextStyle(
-                  color: Color.fromARGB(255, 255, 255, 255),
+                style: GoogleFonts.josefinSans(
+                  color: Colors.white,
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
                 ),
@@ -96,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ListTile(
               leading: const Icon(Icons.info),
-              title: const Text('About'),
+              title: Text('About', style: GoogleFonts.josefinSans()),
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const InfoScreen()),
@@ -104,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ListTile(
               leading: const Icon(Icons.border_color),
-              title: const Text('Feedback'),
+              title: Text('Feedback', style: GoogleFonts.josefinSans()),
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const FeedbackScreen()),
@@ -112,8 +134,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ListTile(
               leading: const Icon(Icons.logout),
-              title: const Text('Logout'),
-              onTap: () => Navigator.push(
+              title: Text('Logout', style: GoogleFonts.josefinSans()),
+              onTap: () => Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => const LoginScreen()),
               ),
@@ -140,18 +162,18 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                 : Text(
                     searchQuery.isNotEmpty ? searchQuery : 'Search products...',
-                    style: const TextStyle(fontSize: 16),
+                    style: GoogleFonts.josefinSans(fontSize: 16),
                   )
-            : const SizedBox(), // Menghindari error saat tidak di home
+            : const SizedBox(),
         actions: [
           IconButton(
             icon: const Icon(Icons.search),
             onPressed: () {
               setState(() {
-                _isEditing = !_isEditing; // Toggle antara IconButton dan TextField
+                _isEditing = !_isEditing;
                 if (!_isEditing) {
-                  searchQuery = searchController.text; // Simpan query saat selesai editing
-                  searchController.clear(); // Kosongkan TextField setelah klik
+                  searchQuery = searchController.text;
+                  searchController.clear();
                 }
               });
             },
@@ -163,9 +185,9 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'Our Products',
-              style: TextStyle(
+              style: GoogleFonts.josefinSans(
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
               ),
@@ -182,7 +204,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemCount: filteredProducts.length,
                 itemBuilder: (context, index) {
                   final product = filteredProducts[index];
-                  return _buildProductBox(product, context);
+                  return _buildProductBox(product);
                 },
               ),
             ),
@@ -201,7 +223,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildProductBox(Product product, BuildContext context) {
+  Widget _buildProductBox(Product product) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -225,7 +247,10 @@ class _HomeScreenState extends State<HomeScreen> {
               fit: BoxFit.cover,
             ),
             const SizedBox(height: 8),
-            Text(product.name, style: const TextStyle(fontSize: 16)),
+            Text(
+              product.name,
+              style: GoogleFonts.josefinSans(fontSize: 16),
+            ),
           ],
         ),
       ),

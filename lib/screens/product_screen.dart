@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:uts_2021110055/models/product.dart';
 import 'package:uts_2021110055/provider/cart_provider.dart';
 import 'package:input_quantity/input_quantity.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 
 class ProductScreen extends StatefulWidget {
   final Product product;
@@ -35,16 +37,31 @@ class _ProductScreenState extends State<ProductScreen> {
             const SizedBox(height: 16),
             Text(
               widget.product.name,
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: 
+              GoogleFonts.josefinSans(
+                  color: Colors.black,
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                ),
             ),
             Text(
                 'Rp ${widget.product.price.toString()}', // Mengubah mata uang ke Rp.
-                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: 
+                GoogleFonts.josefinSans(
+                  color: Colors.black,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             const SizedBox(height: 8),
             Text(
               widget.product.description,
-              style: const TextStyle(fontSize: 14),
+              style: 
+              GoogleFonts.josefinSans(
+                  color: Colors.black,
+                  fontSize: 16,
+                  // fontWeight: FontWeight.bold,
+                ),
             ),
           ],
         ),
@@ -69,18 +86,25 @@ class _ProductScreenState extends State<ProductScreen> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
+                  
                 ),
                 onPressed: () {
                   final cartProvider = Provider.of<CartProvider>(context, listen: false);
                   cartProvider.addProduct(widget.product, quantity);
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
-                      content: Text('Added to cart'),
+                      content: Text('Product added to cart'),
                     ),
                   );
                 },
-                child: const Text('Add to Cart'),
-              ),
+                child: const Text(
+                  'Add to Cart',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.white, // Warna teks putih agar kontras
+                  ),
+                ),
+                ),
             ],
           ),
         ),

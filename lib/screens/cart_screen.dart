@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:uts_2021110055/provider/cart_provider.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
@@ -19,13 +20,13 @@ class CartScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'Cart Items',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 23,
-                fontWeight: FontWeight.bold,
-              ),
+              style: GoogleFonts.josefinSans(
+                    color: const Color.fromRGBO(0, 0, 0, 1),
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
             ),
             const SizedBox(height: 16.0),
             Expanded(
@@ -64,10 +65,11 @@ class CartScreen extends StatelessWidget {
             children: [
             Text(
               'Rp ${cartProvider.totalPrice.toString()}', // Total Price dari items
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+               style: GoogleFonts.josefinSans(
+                  color: Colors.black,
+                  fontSize: 25,
+                  // fontWeight: FontWeight.bold,
+                ),
             ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
@@ -82,7 +84,12 @@ class CartScreen extends StatelessWidget {
                     ),
                   );
                 },
-                child: const Text('Checkout'),
+                child: const Text('Checkout',
+                 style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.white, // Warna teks putih agar kontras
+                  ),
+                ),
               ),
             ],
           ),
