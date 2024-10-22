@@ -80,7 +80,7 @@ class CartScreen extends StatelessWidget {
                   cartProvider.clearCart();
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
-                      content: Text('Checkout clicked!'),
+                      content: Text('Succesfully Checkout Product!'),
                     ),
                   );
                 },

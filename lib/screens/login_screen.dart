@@ -63,6 +63,9 @@ class LoginScreen extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                ),
               onPressed: () {
                 final email = emailController.text.trim();
                 final password = passwordController.text.trim();
@@ -93,7 +96,13 @@ class LoginScreen extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const HomeScreen()),
                 );
               },
-              child: Text(isEdit ? 'Update' : 'Login'),
+              //Button Login
+              child: Text(isEdit ? 'Update' : 'Login', 
+               style: const TextStyle(
+                    fontSize: 12,
+                    color: Colors.white, // Warna teks putih agar kontras
+                  ),
+              ),
             ),
           ],
         ),

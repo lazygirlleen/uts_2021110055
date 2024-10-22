@@ -19,7 +19,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
             style: 
                   GoogleFonts.josefinSans(
                       color: Colors.black,
-                      fontSize: 25,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
         ),
