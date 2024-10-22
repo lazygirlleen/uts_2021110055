@@ -143,10 +143,11 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      appBar: AppBar(
+        appBar: AppBar(
         title: _selectedItem == MainScreenItem.home
             ? _isEditing
                 ? Expanded(
+                  //search controller untuk mencari produk
                     child: TextField(
                       controller: searchController,
                       decoration: const InputDecoration(
@@ -160,14 +161,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                     ),
                   )
-                : Text(
-                    searchQuery.isNotEmpty ? searchQuery : 'Search products...',
-                    style: GoogleFonts.josefinSans(fontSize: 16),
-                  )
+                : const SizedBox() 
             : const SizedBox(),
         actions: [
           IconButton(
-            icon: const Icon(Icons.search),
+            icon: _isEditing ? const Icon(Icons.close) : const Icon(Icons.search),
             onPressed: () {
               setState(() {
                 _isEditing = !_isEditing;

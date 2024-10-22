@@ -4,6 +4,7 @@ import 'package:uts_2021110055/models/product.dart';
 import 'package:uts_2021110055/provider/cart_provider.dart';
 import 'package:input_quantity/input_quantity.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:uts_2021110055/screens/home_screen.dart';
 
 
 class ProductScreen extends StatefulWidget {
@@ -21,9 +22,9 @@ class _ProductScreenState extends State<ProductScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.product.name),
-      ),
+      // appBar: AppBar(
+      //   title: Text(widget.product.name),
+      // ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -86,9 +87,12 @@ class _ProductScreenState extends State<ProductScreen> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
-                  
                 ),
                 onPressed: () {
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomeScreen()),
+                );
                   final cartProvider = Provider.of<CartProvider>(context, listen: false);
                   cartProvider.addProduct(widget.product, quantity);
                   ScaffoldMessenger.of(context).showSnackBar(
