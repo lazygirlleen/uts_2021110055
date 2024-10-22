@@ -42,7 +42,7 @@ class CartScreen extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                     title: Text(cartItem.product.name),
-                    subtitle: Text('Quantity: ${cartItem.quantity}'), // Memperbaiki format jumlah
+                    subtitle: Text('Rp ${cartItem.product.price} x ${cartItem.quantity}'), // Memperbaiki format jumlah
                     trailing: Text('Total: Rp ${cartItem.totalPrice.toString()}'), // Mengubah format total price
                     onTap: () {
                       cartProvider.decreaseQuantity(cartItem.product);

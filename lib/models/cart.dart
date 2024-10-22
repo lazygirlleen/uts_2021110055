@@ -2,7 +2,7 @@ import 'package:uts_2021110055/models/product.dart';
 
 class CartModel {
   final Product product;
-  int quantity; 
+  int quantity;
 
   CartModel({
     required this.product,

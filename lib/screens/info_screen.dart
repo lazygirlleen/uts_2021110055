@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 
 class InfoScreen extends StatelessWidget {
   const InfoScreen({super.key});
@@ -9,28 +11,27 @@ class InfoScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'About',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 15,
-            fontWeight: FontWeight.bold,
-          ),
+           style: GoogleFonts.josefinSans(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
         ),
         centerTitle: true,
       ),
-      body: const Padding(
-        padding:  EdgeInsets.all(16.0),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-      SizedBox(height: 16),
-      Text('Halo, Selamat datang di Nekoshop!',
-       style: TextStyle(
-                    fontSize: 16,
-                    color: Color.fromARGB(255, 106, 106, 106),
-                    fontWeight: FontWeight.bold,
-                  ),
+      const SizedBox(height: 16),
+      Text(
+        'Halo, Selamat datang di Nekoshop!',
+       style: GoogleFonts.josefinSans(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
                   ),
       SizedBox(height: 16),
       Text('Kami merupakan sebuah E-Commerce yang menjual berbagai jenis Smartphone',
